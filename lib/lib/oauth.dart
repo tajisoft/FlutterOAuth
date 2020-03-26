@@ -23,7 +23,7 @@ abstract class OAuth {
   Future<Map<String, dynamic>> getToken() async {
     if (token == null) {
       Response response = await post("${tokenRequest.url}",
-          body: json.encode(tokenRequest.params),
+          body: tokenRequest.params,
           headers: tokenRequest.headers);
       token = json.decode(response.body);
     }
